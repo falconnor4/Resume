@@ -4,151 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <title>Connor Brown - Game Design Intern Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Include html2pdf CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            color: #333;
-            line-height: 1.6;
+        @media print {
+            .no-print {
+                display: none !important;
+            }
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        h2 {
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 15px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .subheading {
-            font-weight: bold;
+        @page {
+            size: A4;
+            margin: 0.2in;
         }
     </style>
 </head>
 
-<body>
-    <div class="header">
-        <h1>Connor Brown</h1>
-        <div class="contact-info">
+<body class="bg-gray-50 text-gray-800 font-sans relative">
+    <!-- Download PDF Button -->
+    <button id="download-btn"
+        class="no-print absolute top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        onclick="downloadPDF()">
+        Download Resume PDF
+    </button>
+
+    <header class="max-w-3xl mx-auto p-6 text-center">
+        <h1 class="text-4xl font-bold">Connor Brown</h1>
+        <div class="mt-2">
             <p>6992 Hycroft Rd, West Vancouver, BC</p>
-            <p>Phone: 778-251-0034 | Email: <a href="mailto:falconnor4@outlook.com">falconnor4@outlook.com</a></p>
+            <p>
+                <i class="fas fa-phone-alt"></i> 778-251-0034 |
+                <i class="fas fa-envelope"></i>
+                <a class="text-blue-500 hover:underline" href="mailto:falconnor4@outlook.com">falconnor4@outlook.com</a>
+            </p>
         </div>
-    </div>
+    </header>
 
-    <div class="section">
-        <h2>Objective</h2>
-        <p>
-            Aspiring game designer and programmer with hands-on experience in graphics programming, game engine
-            development, and agile project management. Eager to join Electronic Arts as a Game Design Intern to help
-            create compelling gameplay experiences and further hone my skills in a collaborative, innovative
-            environment.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <span class="subheading">BCIT – Computer System Technology Diploma</span><br>
-                Currently Enrolled
-            </li>
-            <li>
-                <span class="subheading">Bachelor's in Applied Computer Science</span><br>
-                Expected Graduation: December 2027
-            </li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Experience & Projects</h2>
-        <ul>
-            <li>
-                <span class="subheading">General Programmer – SCP Enigma (Indie Game Project)</span><br>
-                <em>Unity</em><br>
-                <p>
-                    Collaborated as a general programmer within Unity on the indie game "SCP Enigma." Gained hands-on
-                    experience in game development, coding, and problem-solving until the project was halted.
+    <!-- Main content container (resume body) -->
+    <div class="max-w-4xl mx-auto p-6">
+        <main class="space-y-8">
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Objective</h2>
+                <p class="mt-4">
+                    Aspiring game designer and programmer with hands-on experience in graphics programming, game engine
+                    development, and agile project management. Eager to join Electronic Arts as a Game Design Intern to
+                    help create compelling gameplay experiences and further hone my skills in a collaborative,
+                    innovative environment.
                 </p>
-            </li>
-            <li>
-                <span class="subheading">Personal Indie Project</span><br>
-                <em>Ongoing for 3 Years</em><br>
-                <p>
-                    Currently developing a personal indie game engine utilizing modern techniques including advanced
-                    lighting with a baked ray-tracing system. Redesigned movement mechanics through iterative
-                    playtesting and community feedback to enhance overall gameplay experience.
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Education</h2>
+                <ul class="mt-4 space-y-4">
+                    <li>
+                        <p class="font-bold">BCIT – Computer System Technology Diploma</p>
+                        <p>Currently Enrolled</p>
+                    </li>
+                    <li>
+                        <p class="font-bold">Bachelor's in Applied Computer Science</p>
+                        <p>Expected Graduation: December 2027</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Experience & Projects</h2>
+                <ul class="mt-4 space-y-6">
+                    <li>
+                        <p class="font-bold">General Programmer – SCP Enigma (Indie Game Project)</p>
+                        <p class="text-sm italic"><i class="fas fa-code mr-1"></i>Unity</p>
+                        <p class="mt-2">
+                            Collaborated as a general programmer within Unity on the indie game "SCP Enigma." Gained
+                            hands-on experience in game development, coding, and problem-solving until the project was
+                            halted.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="font-bold">Personal Indie Project</p>
+                        <p class="text-sm italic"><i class="fas fa-cogs mr-1"></i>Ongoing for 3 Years</p>
+                        <p class="mt-2">
+                            Currently developing a personal indie game engine utilizing modern techniques including
+                            advanced lighting with a baked ray-tracing system. Redesigned movement mechanics through
+                            iterative playtesting and community feedback to enhance overall gameplay experience.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="font-bold">Graphic Programming Collaboration</p>
+                        <p class="text-sm italic"><i class="fas fa-palette mr-1"></i>Vancouver Art Gallery Anniversary
+                        </p>
+                        <p class="mt-2">
+                            Worked alongside the Vancouver Art Gallery on their anniversary project, specializing in
+                            programming vector laser cutting systems to implement their anniversary piece.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="font-bold">Photography & Arts at Artona</p>
+                        <p class="text-sm italic"><i class="fas fa-camera-retro mr-1"></i>Tony Park - 778-839-6314</p>
+                        <p class="mt-2">
+                            Worked as a professional photographer. gaining expertise in scene composition, framing, and
+                            visual
+                            storytelling skills.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Technical Skills</h2>
+                <ul class="mt-4 space-y-2 list-disc pl-5">
+                    <li>Programming Languages: C, C++, Rust, GLSL</li>
+                    <li>Game Engines & Tools: Unity, Unreal Engine, Blender</li>
+                    <li>Design Methodologies: Agile Framework (and familiarity with iterative design and design
+                        thinking)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Core Strengths</h2>
+                <ul class="mt-4 space-y-2 list-disc pl-5">
+                    <li>Excellent teamwork and communication abilities</li>
+                    <li>Proven experience in creative problem-solving and delegation</li>
+                    <li>Strong passion for game design and development</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-2">Motivation</h2>
+                <p class="mt-4">
+                    Opportunities in the game development industry provide a gateway to contribute meaningfully across
+                    diverse studios. My ambition is to eventually lead my own projects, and beginning with an internship
+                    at a dynamic game development environment is a crucial first step toward that goal.
                 </p>
-            </li>
-            <li>
-                <span class="subheading">Graphic Programming Collaboration</span><br>
-                <em>Vancouver Art Gallery Anniversary</em><br>
-                <p>
-                    Worked alongside the Vancouver Art Gallery on their anniversary project, specializing in graphics
-                    programming to deliver visually compelling content.
-                </p>
-            </li>
-            <li>
-                <span class="subheading">Photography & Arts</span><br>
-                <em>Freelance</em><br>
-                <p>
-                    Engaged in photography projects, gaining expertise in scene composition, framing, and visual
-                    storytelling—skills that enhance my understanding of player focus and game aesthetics.
-                </p>
-            </li>
-        </ul>
+            </section>
+        </main>
     </div>
 
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Programming Languages: C, C++, Rust, GLSL</li>
-            <li>Game Engines & Tools: Unity, Unreal Engine, Blender</li>
-            <li>Design Methodologies: Agile Framework (and familiarity with iterative design and design thinking)</li>
-        </ul>
+    <!-- Fixed section for LinkedIn widget (separate and moved further right, excluded from PDF) -->
+    <div class="no-print fixed right-4 top-20 w-[300px]">
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-5707dedc-053a-480d-8472-c20cb7aa00d6" data-elfsight-app-lazy></div>
     </div>
 
-    <div class="section">
-        <h2>Core Strengths</h2>
-        <ul>
-            <li>Excellent teamwork and communication abilities</li>
-            <li>Proven experience in creative problem-solving and delegation</li>
-            <li>Strong passion for game design and development</li>
-        </ul>
-    </div>
+    <footer class="max-w-3xl mx-auto p-6 mt-8 border-t-2 border-gray-300 text-center">
+        <a class="inline-flex items-center text-blue-500 hover:underline"
+            href="https://www.linkedin.com/in/connor-brown-559a34320/" target="_blank">
+            <i class="fab fa-linkedin fa-lg mr-2"></i>LinkedIn
+        </a>
+    </footer>
 
-    <div class="section">
-        <h2>Motivation</h2>
-        <p>
-            Electronic Arts represents a gateway to the game development world where I can contribute to creating
-            memorable gaming experiences. My ambition is to eventually direct my own projects, and this internship is
-            the first step towards that goal.
-        </p>
-    </div>
+    <!-- Reference the JavaScript file -->
+    <script src="download.js"></script>
 </body>
 
 </html>
