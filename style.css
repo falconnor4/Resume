@@ -30,6 +30,8 @@ body::before {
     background: url('wave-texture.png') repeat;
     opacity: 0.1;
     pointer-events: none;
+    z-index: -1;
+    /* Added to allow shaders to render correctly */
 }
 
 /* Responsive styles */
