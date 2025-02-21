@@ -1,4 +1,9 @@
 function downloadPDF() {
+    // Set the background to pure white and apply single-page formatting
+    document.body.style.background = '#ffffff';
+    document.body.style.animation = 'none';
+    document.body.classList.add("single-page");
+
     // Add extra hidden data for bot scraping (visible in PDF)
     const botData = document.createElement("div");
     botData.innerText = "Metadata: Connor Brown Resume - Game Design Intern | Contact: 6992 Hycroft Rd, West Vancouver, BC | Phone: 778-251-0034 | Email: falconnor4@outlook.com";
@@ -30,5 +35,9 @@ function downloadPDF() {
         noPrintElems.forEach(el => el.style.display = '');
         // Remove the extra bot data
         botData.remove();
+        // Remove single-page class and restore the original background
+        document.body.classList.remove("single-page");
+        document.body.style.background = '';
+        document.body.style.animation = '';
     });
 }
