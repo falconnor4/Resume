@@ -3,23 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connor Brown - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Include html2pdf CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-        }
-
-        @page {
-            size: A4;
-            margin: 0.2in;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans relative">
@@ -140,10 +130,43 @@
         </main>
     </div>
 
-    <!-- Fixed section for LinkedIn widget (separate and moved further right, excluded from PDF) -->
-    <div class="no-print fixed right-4 top-20 w-[300px]">
+    <!-- Fixed section for LinkedIn widget and What I've Done column (separate and moved further right, excluded from PDF) -->
+    <div class="no-print linkedin-widget fixed right-4 top-20 w-[300px] h-[80vh] overflow-y-auto space-y-8">
         <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div class="elfsight-app-5707dedc-053a-480d-8472-c20cb7aa00d6" data-elfsight-app-lazy></div>
+
+        <!-- ShaderToy Panel 1 -->
+        <div class="bg-white p-4 rounded shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Real-Time Rendering</h2>
+            <p class="mb-4">Rendering 500,000,000 Gaussian splats and alpha blending them in real time, hover to check
+                out the code!</p>
+            <iframe width="260" height="300" frameborder="0"
+                src="https://www.shadertoy.com/embed/tfsGRB?gui=false&t=10&paused=false&muted=true"></iframe>
+        </div>
+
+        <!-- ShaderToy Panel 2 -->
+        <div class="bg-white p-4 rounded shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">AAA Graphics</h2>
+            <p class="mb-4">Gaussian Analytical-Anti-Aliasing rendering, of my own design.</p>
+            <iframe width="260" height="300" frameborder="0"
+                src="https://www.shadertoy.com/embed/tfs3z4?gui=false&t=10&paused=false&muted=true"></iframe>
+        </div>
+
+        <!--
+        <div class="bg-white p-4 rounded shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">What I've Done</h2>
+            <ul class="space-y-2 list-disc pl-5">
+                <li>Developed a personal indie game engine</li>
+                <li>Collaborated on the SCP Enigma indie game project</li>
+                <li>Worked with Vancouver Art Gallery on their anniversary project</li>
+                <li>Professional photographer at Artona</li>
+            </ul>
+        </div> -->
+    </div>
+
+    <!-- Scroll icon -->
+    <div class="scroll-icon no-print">
+        <i class="fas fa-arrow-down"></i>
     </div>
 
     <footer class="max-w-3xl mx-auto p-6 mt-8 border-t-2 border-gray-300 text-center">

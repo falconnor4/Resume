@@ -1,0 +1,150 @@
+/* Animated white gradient background with wave-like texture */
+body {
+    background: linear-gradient(180deg, #ffffff, #f8fcfff1);
+    background-size: 200% 200%;
+    animation: gradientWave 15s ease infinite;
+}
+
+@keyframes gradientWave {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+
+    100% {
+        background-position: 50% 0%;
+    }
+}
+
+/* Adding wave-like texture */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('wave-texture.png') repeat;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    body {
+        background-size: 300% 300%;
+    }
+
+    .scroll-icon {
+        right: 10px;
+        font-size: 20px;
+    }
+
+    .scroll-text {
+        right: 10px;
+        font-size: 12px;
+    }
+
+    .no-print.fixed {
+        right: 10px;
+        width: 90%;
+    }
+
+    .no-print.fixed .bg-#f8f8f8 {
+        padding: 2px;
+    }
+
+    .no-print.fixed .bg-#f8f8f8 h2 {
+        font-size: 1.25rem;
+    }
+
+    .no-print.fixed .bg-#f8f8f8 p,
+    .no-print.fixed .bg-#f8f8f8 ul {
+        font-size: 0.875rem;
+    }
+
+    .no-print.fixed .bg-#f8f8f8 iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Make the widget container position static and span full width */
+    .linkedin-widget {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        right: auto !important;
+        margin: 1rem 0;
+    }
+
+    /* Adjust the download button so it stays at the top */
+    #download-btn {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-radius: 0;
+        padding: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 0.2in;
+}
+
+/* Scroll icon animation */
+.scroll-icon {
+    position: fixed;
+    right: 320px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-50%) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-50%) translateX(10px);
+    }
+}
+
+/* Scroll text box */
+.scroll-text {
+    position: fixed;
+    right: 320px;
+    top: 45%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+/* Single-page format for PDF download */
+.single-page {
+    /* Remove extra spacing and ensure content fits on one page */
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    /* Optionally reduce font sizes or spacing if necessary */
+}
