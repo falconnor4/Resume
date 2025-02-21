@@ -160,8 +160,3 @@ body::before {
     height: 100%;
     z-index: 1;
 }
-
-/* New: Prevent hover interactions on Shadertoy panels */
-.shadertoy {
-    pointer-events: none;
-}
