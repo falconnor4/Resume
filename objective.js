@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Default objective text.
-    const defaultObjective = "Aspiring software developer / game designer with hands-on experience in backend programmg, game engine development specialising in graphics programming, and agile project management. Eager to join the workforce in an innovative enviornment";
+    const defaultObjective = "Aspiring software developer/game designer with hands-on experience in game engine development specializing in graphics programming; working with agile project management. Eager to join the workforce in an innovative environment";
 
     const cookies = document.cookie;
     const matchedCompanies = Object.keys(companyObjectives).filter(key => cookies.includes(key + "=true"));
