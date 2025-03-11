@@ -151,12 +151,31 @@ body::before {
     /* Optionally reduce font sizes or spacing if necessary */
 }
 
-/* New: Ensure Shadertoy container appears above background elements */
-#shadertoy {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+/* New: PDF mode styling to fit resume into 2 pages */
+.pdf-mode header,
+.pdf-mode footer {
+    padding: 0.5rem;
+    font-size: 0.9rem;
 }
+
+.pdf-mode main,
+.pdf-mode .max-w-4xl.mx-auto.p-6 {
+    padding: 0.5rem;
+    margin: 0;
+    font-size: 0.8rem;
+    max-width: 100%;
+}
+
+.pdf-mode section {
+    margin-bottom: 0.5rem;
+}
+
+.pdf-mode h1 {
+    font-size: 2rem;
+}
+
+.pdf-mode h2 {
+    font-size: 1.5rem;
+}
+
+/* Optionally adjust spacing between sections if needed */

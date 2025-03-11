@@ -1,8 +1,8 @@
 function downloadPDF() {
-    // Set the background to pure white and apply single-page formatting
+    // Set the background to pure white and apply PDF-specific styling
     document.body.style.background = '#ffffff';
     document.body.style.animation = 'none';
-    document.body.classList.add("single-page");
+    document.body.classList.add("pdf-mode"); // New PDF mode styling
 
     // Add extra hidden data for bot scraping (visible in PDF)
     const botData = document.createElement("div");
@@ -27,7 +27,8 @@ function downloadPDF() {
         filename: 'ConnorBrown_Resume.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+        pagebreak: { mode: 'avoid-all' } // New: Prevent sections from splitting across pages
     };
 
     html2pdf().set(opt).from(element).save().then(() => {
@@ -35,8 +36,8 @@ function downloadPDF() {
         noPrintElems.forEach(el => el.style.display = '');
         // Remove the extra bot data
         botData.remove();
-        // Remove single-page class and restore the original background
-        document.body.classList.remove("single-page");
+        // Remove PDF mode styling and restore the original background
+        document.body.classList.remove("pdf-mode");
         document.body.style.background = '';
         document.body.style.animation = '';
     });
